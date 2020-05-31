@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<style>
+    input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+    font-size: 0.75em;
+    color: #E67E22;
+    top: -2.25rem;
+    -webkit-transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+    }
+
+    .styled-input {
+    float: left;
+    width: 33.3333%;
+    margin: 2rem 0 1rem;
+    position: relative;
+    }
+    .styled-input label {
+    color: #999;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+    transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+    pointer-events: none;
+    }
+    .styled-input.wide {
+    width: 100%;
+    }
+
+    input, textarea {
+    padding: 1rem 1rem;
+    border: 0;
+    width: 100%;
+    font-size: 1rem;
+    }
+    input ~ span, textarea ~ span {
+    display: block;
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    -webkit-transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+    }
+    input:focus, textarea:focus {
+    outline: 0;
+    }
+    input:focus ~ span, textarea:focus ~ span {
+    width: 100%;
+    -webkit-transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+    }
+
+    textarea {
+    width: 100%;
+    min-height: 15em;
+    }
+
+
+    body{font-family:'Roboto',Arial,sans-serif}.none{display:none}
+
+    .datainput{
+    position:relative;margin:5px 0 20px
+    }
+    .datainput p{
+        font-size:12px;background:#eee;display:inline-block;padding:5px 15px;border-radius:.5rem
+    }
+    .whatsapp-form textarea{
+        min-height:120px
+    }
+    .datainput select{
+        padding:12px 0;color:#555;font-size:14px;width:100%;border:0;border-bottom:1px solid #ddd;outline:none;background:#fff
+    }
+    .datainput input,.datainput textarea{
+        font-size:15px;padding:15px 0;display:block;width:100%;border:none;border-bottom:1px solid #ddd
+    }
+    .datainput input:focus,.datainput textarea:focus{
+        outline:none
+    }
+    .datainput label{
+        color:#999;font-size:14px;font-weight:400;position:absolute;pointer-events:none;left:0;top:18px;transition:.2s ease all
+    }
+    .datainput input:focus~label,.datainput input:valid~label,.datainput textarea:focus~label,.datainput textarea:valid~label{
+        top:-10px;
+        font-size:14px;
+        color:#E67E22
+    }
+    #notif-license span{
+        font-size:40px
+    }
+    #notif-license{
+        display:none;position:fixed 
+    }
+    .bar{
+        position:relative;display:block;width:100%  
+    }
+    .bar:before,.bar:after{ content:'';
+        height:2px;
+        width:0;
+        bottom:1px;
+        position:absolute;
+        background:#E67E22;
+        transition:.2s ease all
+    }
+    .bar:before{
+        left:50%
+    }
+    .bar:after{
+        right:50%
+    }
+    .datainput input:focus~.bar:before,.datainput input:focus~.bar:after,.datainput textarea:focus~.bar:before,.datainput textarea:focus~.bar:after{
+        width:50%
+    }
+    .indigox{
+        background:#3f51b5
+    }
+    .orangex{
+        background:#ff9800
+    }
+    .pinkx{
+        background:#e91e63
+    }
+    .bluex{
+        background:#2196F3
+    }
+    .purplex{
+        background:#9c27b0
+    }
+    .redx{
+        background:#F44336
+    }
+    .greenx{
+        background:#4CAF50
+    }
+    .highlight{
+        position:absolute;height:50%;width:100px;top:25%;left:0;pointer-events:none;opacity:.5
+    }
+    .datainput input:focus~.highlight,.datainput textarea:focus~.highlight{
+        animation:inputHighlighter .3s ease
+    }
+    .datainput input:focus~label,.datainput input:valid~label,.datainput textarea:focus~label,.datainput textarea:valid~label{
+        top:-10px;
+        font-size:13px;
+        color:#E67E22
+    }
+
+    form.whatsapp-form {
+        box-shadow: 0 1px 6px rgba(32,33,36,.28);
+        border-radius: .5rem;
+        padding: 20px;
+        box-sizing: border-box;
+        color: #444;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    /*.whatsapp-form #button.send_form {
+        color: #fff;
+        background: #E67E22;
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 25px;
+        border-radius: .3rem;
+        font-weight: 700;
+        letter-spacing: .5px;
+        font-size: 15px;
+    }*/
+    #text-info span {
+        display: block;
+        padding: 10px 15px;
+        text-align: center;
+        font-weight: 700;
+        margin: 15px 0;
+        border-radius: .5rem;
+    }
+    #text-info span.yes {
+        background: #c6ffc5;
+        color: #0ea904;
+    }
+    #text-info span.no {
+        background: #ffc5c5;
+        color: #ce0404;
+    }
+</style>
+
+
+<div class="contact" id="contact">
+    <div class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 style="font-size: 48px; line-height: 200px; font-weight: 700; text-transform: uppercase; padding-left: 25px;"><img src="https://promotiontag.com/wp-content/uploads/2019/07/orange.jpg" alt="" height="55" width="3" style="position: relative;
+            right: 15px; bottom: 7px;">Karyera</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<div class="container" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="row">
+        <div class="col-sm-6">
+            <form class="whatsapp-form" action="{% url 'career' %}" method="POST" style="max-width: 500px;">
+                {% csrf_token %}
+                <div class="datainput">
+                    <input class="validate" id="wa_name" name="teach_name" required="" type="text" value=''/>
+                    <span class="highlight"></span><span class="bar"></span>
+                    <label>Ad Soyad</label>
+                </div>
+                <div class="datainput">
+                    <input class="validate" id="wa_email" name="teach_email" required="" type="email" value=''/>
+                    <span class="highlight"></span><span class="bar"></span>
+                    <label>Email</label>
+                </div>
+                <!--<div class="datainput">
+                    <select id="wa_select">
+                        <option hidden='hidden' selected='selected' value='default'>Bölüm</option>
+                        <option value="1">Kerjasama</option>
+                        <option value="2">Pasang iklan</option>
+                        <option value="3">lainnya</option>
+                    </select>
+                </div>-->
+                <div class="datainput">
+                    <textarea name="teach_message" id='wa_textarea' placeholder='' maxlength='5000' row='1' required=""></textarea>
+                    <span class="highlight"></span><span class="bar"></span>
+                    <label>Mesaj</label>
+                </div>
+                <button class="send_form" id="button" type='submit' style="font-family: sans-serif;
+                text-transform: uppercase;
+                outline: 0;
+                background: #E67E22;
+                border: 0;
+                padding: 15px;
+                color: #FFFFFF;
+                font-size: 14px;
+                -webkit-transition: all 0.3 ease;
+                transition: all 0.3 ease;
+                cursor: pointer;">Göndər</button>
+                <br>
+                <br>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <div class="text half">
+                <h2 style="font-size: 43.5px; font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif; color: #444857; padding: 0px 0px 20px">CAREERLAND-DƏ KARYERA</h2>
+                <p>You could start out just teaching raw HTML and CSS. That's fundamental stuff that is vital to a web curriculum. Then incorporate JavaScript. Perhaps add jQuery, that takes just selection from a menu.</p>
+                <p>You can get as advanced as you like on CodePen. Teach about JavaScript compiling with Babel, ES6, and JSX. Teach a library like D3. Show students CSS preprocessing and import dependencies. Output HTML in Slim. Ajax for some JSON. Anything you can do on the front end web, you can do on CodePen.</p>
+            </div>
+        </div>
+    </div>
+</div>  
+{% endblock %}

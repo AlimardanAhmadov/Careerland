@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="contact" id="contact">
+    <div class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 style="font-size: 48px; line-height: 200px; font-weight: 700; text-transform: uppercase; padding-left: 25px;"><img src="https://promotiontag.com/wp-content/uploads/2019/07/orange.jpg" alt="" height="55" width="3" style="position: relative;
+            right: 15px; bottom: 7px;">Haqqımızda</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  
+<div class="about">
+<div class="container">
+    <div class="title" style="line-height: 55px;">
+    <p style="font-size: 30px; font-weight: 700; color: #333333; text-transform: uppercase; padding-top: 50px; text-align: center;">Haqqımızda</p>
+    <p style="text-align: center; color: #999999; font-size: 15px; padding-bottom: 15px; position: relative; bottom: 30px;">Niyə məhz careerland?</p>
+    </div>
+    <p style="text-transform: uppercase; font-size: 18px; font-weight: 700"><img src="https://promotiontag.com/wp-content/uploads/2019/07/orange.jpg" alt="" height="35" width="3" style="position: relative;
+    right: 0px; bottom: 5px; margin-right: 25px; color: #999999">BİZ KİMİK?</p>
+    <br>
+    <p id="ab">Careerland &nbsp;ən son standartlara uyğun fəaliyyət göstərən&nbsp; bir hazırlıq müəssisəsi olub &nbsp;2017-cı ilin Sentiabr ayından&nbsp; etibarən fəaliyyətə başlamışdır.&nbsp;</p>
+    <p id="ab">Məqsədimiz Azərbaycanda muasir standartlara cavab verən hazırlıq mərkəzinin qurulmasıdır.</p>
+    <p id="ab">Mərkəzimizdə dərs deyən müəllim və idarə kollektivi təcrübəli və öz sahəsində peşəkar şəxslərdir.</p>
+    <p id="ab">Biz sizə “Buraxılış imtahlarına hazırlıq, təkmilləşdirmə kursları, ibtidai sinif hazırlığı, Azərbaycan dili &nbsp;ilə yanaşı beynəlxalq imtahanlar İELTS, ALES, SAT, YÖS bundan əlavə xarici dillər İngilis dili, Rus dili, Alman dili, Fransız dili” <strong>kurslarımızdan faydalanmağı təklif edirik.&nbsp;</strong>     </p>
+    <p id="ab">Missiyamız şagirdlərimizi (tələbələrimizi) təlabatlarına &nbsp;uyğun müəyyən edilmiş yüksək keyfiyyətli təhsil ilə &nbsp;təmin etməkdir.</p>
+</div>  
+</div>
+
+
+<section class="detailed-about" style="padding-top: 20px;">
+    <div class="container">
+        <div class="wrapper">
+            <p style="font-size: 30px; font-weight: 700; color: #333333; text-transform: uppercase; padding-top: 50px; text-align: center; padding-bottom: 30px;">XİDMƏTLƏRİMİZ</p>
+            <ul class="detailed-about__list">
+                <a href="{% url 'service' %}" style="text-decoration: none;"><li id="abi" class="detailed-about__li-question" style="font-size: 16px; color: #337ab7; font-family: Tahoma,sans-serif">  Dövlət qulluğu</li></a>
+                <a href=""><li id="abi" class="detailed-about__li-question" style="font-size: 16px; color: #337ab7; font-family: Tahoma,sans-serif">
+        MAGİSTR HAZIRLIĞI</li></a>
+                <a href="#"><li id="abi" class="detailed-about__li-question" style="font-size: 16px; color: #337ab7; font-family: Tahoma,sans-serif">Müəllimlərin işə qəbulu</li></a>
+                <a href="#"><li id="abi" class="detailed-about__li-question" style="font-size: 16px; color: #337ab7; font-family: Tahoma,sans-serif">YÖS HAZIRLIĞI</li></a>
+                <a href=""><li id="abi" class="detailed-about__li-question" style="font-size: 16px; color: #337ab7; font-family: Tahoma,sans-serif">sürücülük</li></a>
+                <a href=""><li id="abi" class="detailed-about__li-question" style="font-size: 16px; color: #337ab7; font-family: Tahoma,sans-serif">Xarici dil</li></a>
+            </ul>
+        </div>
+    </div>  
+</section>
+{% endblock %}

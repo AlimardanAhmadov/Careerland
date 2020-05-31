@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<style>
+
+.band {
+    width: 90%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding-bottom: 30px;
+}
+@media (min-width: 30em) {
+    .band {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 60em) {
+    .band {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    background: white;
+    text-decoration: none;
+    color: #444;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+    top: 0;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+.card:hover {
+    top: -2px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+.card article {
+    padding: 20px;
+    -webkit-box-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.card h1 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+.card p {
+    -webkit-box-flex: 1;
+    flex: 1;
+    line-height: 1.4;
+}
+.card span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 2em 0 0 0;
+}
+.card .thumb {
+    padding-bottom: 60%;
+    background-size: cover;
+    background-position: center center;
+}
+
+@media (min-width: 60em) {
+    .item-1 {
+        grid-column: 1 / span 2;
+    }
+    .item-1 h1 {
+        font-size: 24px;
+    }
+}
+</style>
+
+<div class="contact" id="contact">
+  <div class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <h3 style="font-size: 48px; line-height: 200px; font-weight: 700; text-transform: uppercase; padding-left: 25px;"><img src="https://promotiontag.com/wp-content/uploads/2019/07/orange.jpg" alt="" height="55" width="3" style="position: relative;
+    right: 15px; bottom: 7px;">İmtahanlar</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>
+<h1 style="text-align: center; font-weight: 700; padding: 50px 0px 50px;">İMTAHANLAR</h1>
+</header>
+<div class="band">
+    <div class="item-1">
+        <a href="#" class="card">
+        <div class="thumb" style="background-image: url(https://tehsil.im//upload//20171006/1479286_6.jpg);"></div>
+        <article>
+            <h1>DÖVLƏT QULLUĞU - SINAQ</h1>
+            <span>5 AZN</span>
+        </article>
+        </a>
+    </div>
+    <div class="item-2">
+        <a href="#" class="card">
+        <div class="thumb" style="background-image: url(https://www.wrike.com/blog/content/uploads/2014/09/iStock-654454404-777x518.jpg);"></div>
+        <article>
+            <h1>MAGİSTR HAZIRLIĞI - SINAQ</h1>
+            <span>5 AZN</span>
+        </article>
+        </a>
+    </div>
+    <div class="item-3">
+        <a href="#" class="card">
+        <div class="thumb" style="background-image: url(https://metbuat.az/images/metbuat/images_o/1380840.jpg);"></div>
+        <article>
+            <h1>MİQ - SINAQ</h1>
+            <span>5 AZN</span>
+        </article>
+        </a>
+    </div>
+    <div class="item-4">
+        <a href="#" class="card">
+        <div class="thumb" style="background-image: url(https://qalata.com/wp-content/uploads/2019/10/Y%C3%96S-kurslar%C4%B1na-q%C9%99bul-4-1024x1024.png);"></div>
+        <article>
+        <h1>YÖS - SINAQ</h1>
+        <span>5 AZN</span>
+        </article>
+        </a>
+    </div>
+    <div class="item-5">
+        <a href="{% url 'driving_exam' %}" class="card">
+        <div class="thumb" style="background-image: url(https://drivetribe.imgix.net/aOGl7yPYSmqWwb-qDj4oCA);"></div>
+        <article>
+            <h1>SÜRÜCÜLÜK - SINAQ</h1>
+            <span>5 AZN</span>
+        </article>
+        </a>
+    </div>
+    <div class="item-6">
+        <a href="#" class="card">
+        <div class="thumb" style="background-image: url(https://www.accesstochina.com/images/home-slider/chinese-language-icon-no-words.jpg);"></div>
+        <article>
+            <h1>XARICI DIL - SINAQ</h1>
+            <span>5 AZN</span>
+        </article>
+        </a>
+    </div>
+</div>
+{% endblock %}

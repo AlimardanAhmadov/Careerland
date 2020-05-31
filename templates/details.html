@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+      @media screen and (max-width: 892px) {
+    #second {
+        padding-top: 30px;
+    }
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<div class="contact" id="contact">
+    <div class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 style="font-size: 48px; line-height: 200px; font-weight: 700; text-transform: uppercase; padding-left: 25px;"><img src="https://promotiontag.com/wp-content/uploads/2019/07/orange.jpg" alt="" height="55" width="3" style="position: relative;
+            right: 15px; bottom: 7px;">İmtahanlar</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="details" style="padding-top: 40px; padding-bottom: 40px">
+  <div class="container bg-white">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 pt-3">
+        <div class="image-wrapper">
+          <img src="https://report.az/storage/news/4405cc3c726dafa4b4fe4d4dbd1628b5/d25ae23d-f4d4-451c-95de-143982fb7dd0_640.jpg" alt="" />
+        </div>
+      </div>
+      
+      <div class="col-lg-7 col-md-7 pt-2" style="position: relative; bottom: 14px;" id="second">
+        <h1 class="mb-0 h4" style="font-size: 24px; color: #34595E; margin: 10px 0px;">Dövlət qulluğu Sınaq İmtahanı</h1>
+        <h5 class="text-primary pb-1 pt-1 m-0">
+        <span class="get_price" style="font-size: 20px; margin: 10px 0px;"> <i class="fas fa-tags"></i> 5</span> azn</h5>
+        <h6 class="card-subtitle mt-1 mb-0 text-muted height_size_20">
+        <p style="margin: 10px 0px;"> <i class="fas fa-ad"></i> Mövzu: &nbsp; Dövlət qulluğu</p>
+        </h6>
+        <a href="{% url 'charge' %}" id="exam_buy" data-buy-exam-url="/buy-exam/48/dovlet-qullugu-sinaq-imtahani-bb-tq.html" class="btn btn-primary" data-teacher="17" data-id="48" style="background-color: #d35400"> <i class="fas fa-shopping-cart"></i> İmtahanı al </a>
+        <a href="#" data-id="48" class="btn btn-danger exam_one_like" style="background-color: #4CAF50"> <i class="far fa-thumbs-up"></i> Bəyən</a>
+         <!-- exam buy end -->
+        <p class="my-0 mt-4 max_height_size_300" style="margin: 24px 0px 18px">Dövlət qulluğu BB təsnifatı üzrə Sınaq İmtahanı Careerland tərəfindən careerland.az onlayn imtahan platforması üzərindən sizə təqdim edilir. Sınaq imtahanı qəbul proqramı əsasında hazırlanmış qanunvericilik, məntiq, informatika və Azərbaycan dili fənnləri üzrə 100 qapalı test tapşırığından ibarətdir.
+         </p>
+        <div class="row">
+          <div class="col-lg-6 col-md-6" style="font-size: 16px; text-align: left">
+            <div class="lang" style="margin: 0px 0px 10px;">
+              <i class="fas fa-language" style="display: inline-block"></i>
+              <p class="my-2" style="display: inline-block"><strong class="text-dark"> Dil:</strong> AZ</p>
+            </div>
+            <div class="duration" style="margin: 0px 0px 10px;">
+              <i class="far fa-clock" style="display: inline-block"></i>
+              <p class="my-2" style="display: inline-block"><strong class="text-dark"> Vaxt :</strong>180 Dəqiqə</p>
+            </div>  
+            <div class="ques"  style="margin: 0px 0px 10px;">
+              <i class="fas fa-list-ul" style="display: inline-block"></i>
+              <p class="my-2" style="display: inline-block"><strong class="text-dark"> Sual:</strong> 100</p>
+            </div>
+            <p>
+            <i class="mdi mdi-star text-warning"></i><i class="mdi mdi-star text-warning"></i><i class="mdi mdi-star text-warning"></i></p>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
