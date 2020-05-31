@@ -140,3 +140,6 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
 django_heroku.settings(locals())
+
+
+BUILDPACK_URL='https://github.com/kr/heroku-buildpack-go.git'
