@@ -1,1 +1,1 @@
-web: gunicorn obline_exam.wsgi
+web: gunicorn online_exam.wsgi
