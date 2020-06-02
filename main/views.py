@@ -3,6 +3,7 @@ from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from .forms import RegistrationForm, ContactForm, CareerForm
 from django.contrib.auth.decorators import login_required
+
 import stripe
 
 stripe.api_key = "sk_test_jNv3kMTJ2PwPDuJz66KBKTFx00xZiVHQLo"
@@ -135,4 +136,11 @@ def charge(request):
             description='Purchase'
         )
 
+        return redirect('civil_service')
+
     return render(request, 'payment.html')
+
+
+
+def civil_service_exams(request):
+    return render(request, 'civil.html')
