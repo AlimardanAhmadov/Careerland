@@ -655,7 +655,42 @@
       height: 200px; 
     }
   }
+
+
+  /*preloader*/
+
+  #preloader {
+    position: absolute;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+
+  #status {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    /* centers the loading animation horizontally one the screen */
+    top: 50%;
+    /* centers the loading animation vertically one the screen */
+    background-image: url(https://i.gifer.com/9HgH.gif);
+    /* path to your loading animation */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px;
+    /* is width and height divided by two */
+  }
 </style>
+
+
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+
 <body translate="no">
   <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
     <div class="container">
@@ -678,6 +713,7 @@
       </div>
     </div>
   </div>
+
 
 {% block content %}
 <section class="banner">
@@ -851,6 +887,14 @@ Orta məktəblərin 2,3,4,5, 6, 7 və 8-ci sinifləri üçün...</p>
 <script src="https://kit.fontawesome.com/9d5b946528.js" crossorigin="anonymous"></script>
 
 <script id="rendered-js">
+
+  //preloader
+
+  $(window).on('load', function() {  
+    $('#status').fadeOut();  
+    $('#preloader').delay(350).fadeOut('slow');  
+    $('body').delay(350).css({'overflow':'visible'});
+  })
 
 $(function () {
 

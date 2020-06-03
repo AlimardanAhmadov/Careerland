@@ -131,7 +131,7 @@ def charge(request):
 
         charge = stripe.Charge.create(
             customer=customer,
-            amount=500,
+            amount=100,
             currency='azn',
             description='Purchase'
         )
