@@ -73,30 +73,31 @@
 </script>
 </head>
 <body translate="no">
-<header class="header">
-<div class="left-title">Dövlət Qulluğu</div>
-<div class="right-title">Toplam Sual: <span id="tque"></span></div>
-<div class="clearfix"></div>
-</header>
+  <header class="header">
+    <div class="left-title">Dövlət Qulluğu</div>
+    <div class="right-title">Toplam Sual: <span id="tque"></span></div>
+    <div class="clearfix"></div>
+  </header>
 <div class="content">
-<div class="container">
-<div class="row">
-<div class="col-sm-12">
-<div id="result" class="quiz-body">
-<form name="quizForm" onSubmit="">
-<fieldset class="form-group">
-<h4><span id="qid">1.</span> <span id="question"></span></h4>
-<div class="option-block-container" id="question-options">
-</div> 
-</fieldset>
-<button name="previous" id="previous" class="btn btn-success" style="cursor: pointer">Əvvəlki</button>
-&nbsp;
-<button name="next" id="next" class="btn btn-success" style="cursor: pointer">Sonrakı</button>
-</form>
-</div>
-</div> 
-</div> 
-</div> 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="result" class="quiz-body">
+          <form name="quizForm" onSubmit="">
+            <fieldset class="form-group">
+              <h4><span id="qid">1.</span> <span id="question"></span></h4>
+              <img id="picTrivia">
+              <div class="option-block-container" id="question-options">
+              </div> 
+            </fieldset>
+            <button name="previous" id="previous" class="btn btn-success" style="cursor: pointer">Əvvəlki</button>
+              &nbsp;
+            <button name="next" id="next" class="btn btn-success" style="cursor: pointer">Sonrakı</button>
+          </form>
+        </div>
+      </div> 
+    </div> 
+  </div> 
 </div> 
 <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
@@ -105,7 +106,113 @@
 /* Created and coded by Abhilash Narayan */
 /* Quiz source: w3schools.com */
 
-var quiz = { "JS": [
+var quiz = {
+
+  images: [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "static/images/61.png",
+    "",
+    "",
+    "static/images/64.png",
+    "",
+    "static/images/66.png",
+    "",
+    "",
+    "",
+    "",
+    "static/images/71.png",
+    "",
+    "",
+    "static/images/74.png",
+    "static/images/75.png",
+    "",
+    "static/images/77.png",
+    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+    "",
+    "static/images/80.png",
+    "",
+    "",
+    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+    "",
+    "static/images/85.png",
+    "static/images/86.png",
+    "static/images/87.png",
+    "",
+    "",
+    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+    "",
+    "static/images/92.png",
+    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+    "",
+    "static/images/95.png",
+    "static/images/96.png",
+    "static/images/97.png",
+    "",
+    "static/images/99.png",
+    "",
+    
+  ],
+
+  "JS": [
   {
     "id": 1,
     "question": " Mürəkkəb cümləni müəyyən edin: ",
@@ -1752,9 +1859,6 @@ var quiz = { "JS": [
     "status": "" }] };
 
 
-
-
-
 var quizApp = function () {
 
   this.score = 0;
@@ -1774,6 +1878,7 @@ var quizApp = function () {
 
 
       $("#question").html(quiz.JS[this.currentque].question);
+      $("img").attr('src', quiz.images[this.currentque]);
       $("#question-options").html("");
       for (var key in quiz.JS[this.currentque].options[0]) {
         if (quiz.JS[this.currentque].options[0].hasOwnProperty(key)) {
