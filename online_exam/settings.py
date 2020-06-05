@@ -141,8 +141,6 @@ STATICFILES_DIRS = [
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
-django_heroku.settings(locals())
-
 AWS_ACCESS_KEY_ID = ' AKIA4Y2CJ7O3UNMD6RRW'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'careerland'
@@ -156,3 +154,6 @@ AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+django_heroku.settings(locals())
