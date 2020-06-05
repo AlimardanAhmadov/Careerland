@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'main',
+
+    'storagres',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +143,16 @@ LOGIN_REDIRECT_URL = 'home'
 
 django_heroku.settings(locals())
 
+AWS_ACCESS_KEY_ID = ' AKIA4Y2CJ7O3UNMD6RRW'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'careerland'
+
+AWS_S3_HOST = 's3.us-east-2.amazonaws.com'
+AWS_S3_REGION_NAME = "us-east-2"
+
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
