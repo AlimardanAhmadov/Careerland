@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'user',
     'main',
 
-    'storagres',
+    'storages',
 ]
 
 MIDDLEWARE = [
