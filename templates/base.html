@@ -57,6 +57,22 @@
     color:#fff;
     text-transform:uppercase;
     font-weight:700;
+    text-align: center;
+    position: relative;
+    top: 8px;
+  }
+
+  @media screen and (max-width: 892px){
+    .opaque-navbar .container .navbar-collapse >ul >li >a{
+      position: relative;
+      top: 0px;
+      bottom: 8px;
+    }
+
+    .navbar-header img {
+      height: 50px;
+      padding-left: 8px;
+    }
   }
 
   .opaque-navbar .container .navbar-collapse >ul >li >a:hover{
@@ -66,7 +82,7 @@
   .opaque-navbar{
     background-color:rgba(0,0,0,0);
     border-bottom:1px solid #eee;
-    
+    height: 70px;
     transition : background-color 0.5s ease 0s;
   }
   .opaque-navbar.opaque {
@@ -698,7 +714,8 @@
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNav">
         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand page-scroll" href="{% url 'home' %}">Career<span style="color: #E67E22">LAND</span></a>
+        <!--<a class="navbar-brand page-scroll" href="{% url 'home' %}">Career<span style="color: #E67E22">LAND</span></a>-->
+        <a href="{% url 'home' %}"><img src="static/images/logo.png" alt="..." height="55" style="position: relative; top: 5px;"></a>
       </div>
       <div class="collapse navbar-collapse" id="myNav">
         <ul class="nav navbar-nav">
@@ -847,12 +864,12 @@ Orta məktəblərin 2,3,4,5, 6, 7 və 8-ci sinifləri üçün...</p>
       <div class="col-xs-6 col-md-3">
         <h6 style="text-transform: uppercase; font-weight: 700">Careerland</h6>
         <ul class="footer-links">
-          <li><a href="http://scanfcode.com/about/">Haqqımızda</a></li>
-          <li><a href="http://scanfcode.com/contact/">Xaricdə Təhsil</a></li>
-          <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Qalereya</a></li>
-          <li><a href="http://scanfcode.com/privacy-policy/">Kurslarımız</a></li>
-          <li><a href="http://scanfcode.com/sitemap/">Karyera</a></li>
-          <li><a href="http://scanfcode.com/sitemap/">Əlaqə</a></li>
+          <li><a href="{% url 'haqqımızda' %}">Haqqımızda</a></li>
+          <li><a href="{% url 'abroad' %}">Xaricdə Təhsil</a></li>
+          <li><a href="{% url 'gallery' %}">Qalereya</a></li>
+          <li><a href="{% url 'exams' %}">Imtahanlar</a></li>
+          <li><a href="{% url 'career' %}">Karyera</a></li>
+          <li><a href="{% url 'contact' %}">Əlaqə</a></li>
         </ul>
       </div>
     </div>
