@@ -14,6 +14,7 @@ class Registration(models.Model):
 class Contact(models.Model):
     name = models.CharField(max_length=150)
     email = models.EmailField()
+    topic = models.CharField(max_length=50)
     number = models.CharField(max_length=100)
     message = models.TextField()    
 

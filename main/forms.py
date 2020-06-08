@@ -12,7 +12,7 @@ class RegistrationForm(forms.ModelForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ["name", "email", "number", "message" ]
+        fields = ["name", "email", "topic", "number", "message" ]
 
 
 class CareerForm(forms.ModelForm):
