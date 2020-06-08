@@ -28,7 +28,7 @@ def email(request):
             phone_number = form.cleaned_data.get('phone_number')
             form.save()
 
-            comment = from_email + ' istifadəçisi qeydiyyatdan keçmək üçün müraciət etdi, əlaqə nömrəsi ' + phone_number
+            comment = from_email + " istifadəçisi qeydiyyatdan keçmək üçün müraciət etdi, əlaqə nömrəsi " + phone_number
             pro_comment = from_user + " " + from_surname
             send_mail(pro_comment, comment, from_email, [settings.EMAIL_HOST_USER], fail_silently=False)
 
@@ -36,7 +36,7 @@ def email(request):
     else:
         form = RegistrationForm()
 
-    context= {
+    context = {
         'form': form
     }
 
@@ -48,13 +48,12 @@ def contact(request):
         contact_form = ContactForm(request.POST or None)
 
         if contact_form.is_valid():
+            contact_form.save()
             name = contact_form.cleaned_data.get("name")
             surname = contact_form.cleaned_data.get('surname')
             message = contact_form.cleaned_data.get("message")
             number = contact_form.cleaned_data.get("number")
             email = contact_form.cleaned_data.get("email")
-            
-            contact_form.save()
             
             topic_comment = str(name) + " " + str(surname)
             cantact_comment = email + " - " + message + " , istifadeçinin əlaqə nömrəsi: " + number
