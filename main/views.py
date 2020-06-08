@@ -31,7 +31,7 @@ def email(request):
             form.save()
 
             send_mail(pro_comment, comment, from_email, [settings.EMAIL_HOST_USER])
-            
+
             return redirect('home')
     else:
         form = RegistrationForm()
@@ -52,11 +52,12 @@ def contact(request):
             message = contact_form.cleaned_data.get("message")
             number = contact_form.cleaned_data.get("number")
             email = contact_form.cleaned_data.get("email")
-
-            topic_comment = str(name) + " " + str(surname)
-            cantact_comment = email + " - " + message + " , istifadeçinin əlaqə nömrəsi: " + number
+            
             contact_form.save()
             
+            topic_comment = str(name) + " " + str(surname)
+            cantact_comment = email + " - " + message + " , istifadeçinin əlaqə nömrəsi: " + number
+
             send_mail(
                 topic_comment,
                 cantact_comment,
