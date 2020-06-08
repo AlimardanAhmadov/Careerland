@@ -26,11 +26,11 @@ def email(request):
             from_user = form.cleaned_data.get("from_user")
             from_surname = form.cleaned_data.get("from_surname")
             phone_number = form.cleaned_data.get('phone_number')
-            
             form.save()
+
             comment = from_email + ' istifadəçisi qeydiyyatdan keçmək üçün müraciət etdi, əlaqə nömrəsi ' + phone_number
             pro_comment = from_user + " " + from_surname
-            send_mail(pro_comment, comment, from_email, [settings.EMAIL_HOST_USER])
+            send_mail(pro_comment, comment, from_email, [settings.EMAIL_HOST_USER], fail_silently=False)
 
             return redirect('home')
     else:
@@ -39,6 +39,7 @@ def email(request):
     context= {
         'form': form
         }
+
     return render(request, 'base.html', context)
 
 
@@ -62,7 +63,8 @@ def contact(request):
                 topic_comment,
                 cantact_comment,
                 email,
-                ['eelimerdan752@gmail.com']
+                ['eelimerdan752@gmail.com'],
+                fail_silently=False
             )
     else:
         contact_form = ContactForm()
@@ -104,8 +106,8 @@ def career(request):
                 user_comment,
                 comment,
                 teach_email,
-                ['eelimerdan752@gmail.com']
-
+                ['eelimerdan752@gmail.com'],
+                fail_silently=False,
             )
     else:
         career_form = CareerForm()
