@@ -38,7 +38,7 @@ def email(request):
 
     context= {
         'form': form
-        }
+    }
 
     return render(request, 'base.html', context)
 
