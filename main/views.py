@@ -23,9 +23,12 @@ def email(request):
 
         if form.is_valid():
             from_email = form.cleaned_data.get("from_email")
+            from_user = form.cleaned_data.get("from_user")
+            from_surname = form.cleaned_data.get("from_surname")
             phone_number = form.cleaned_data.get('phone_number')
             comment = from_email + ' istifadəçisi qeydiyyatdan keçmək üçün müraciət etdi, əlaqə nömrəsi ' + phone_number
-            send_mail('Qeydiyyat Formu', comment, from_email, [settings.EMAIL_HOST_USER])
+            pro_comment = from_user + " " + from_surname
+            send_mail(pro_comment, comment, from_email, [settings.EMAIL_HOST_USER])
             form.save()
             return redirect('home')
     else:
@@ -42,16 +45,19 @@ def contact(request):
         contact_form = ContactForm(request.POST or None)
 
         if contact_form.is_valid():
-            contact_form.save()
             name = contact_form.cleaned_data.get("name")
+            surname = contact_form.cleaned_data.get('surname')
             message = contact_form.cleaned_data.get("message")
             number = contact_form.cleaned_data.get("number")
-            topic = contact_form.cleaned_data.get("topic")
             email = contact_form.cleaned_data.get("email")
+
+            topic_comment = str(name) + " " + str(surname)
+            cantact_comment = email + " - " + message + " , istifadeçinin əlaqə nömrəsi: " + number
+            contact_form.save()
             
             send_mail(
-                topic,
-                message,
+                topic_comment,
+                cantact_comment,
                 email,
                 ['eelimerdan752@gmail.com']
             )
@@ -82,13 +88,18 @@ def career(request):
         career_form = CareerForm(request.POST or None)
         
         if career_form.is_valid():
-            career_form.save()
+            teach_name = career_form.cleaned_data.get('teach_name')
+            teach_surname = career_form.cleaned_data.get("teach_surname")
             teach_message = career_form.cleaned_data.get("teach_message")
             teach_email = career_form.cleaned_data.get("teach_email")
+            comment = teach_email + " - " + teach_message
+            user_comment = teach_surname + " " + teach_name
+            career_form.save()
+            
             
             send_mail(
-                'Is qeydiyyati',
-                teach_message,
+                user_comment,
+                comment,
                 teach_email,
                 ['eelimerdan752@gmail.com']
 
