@@ -24,12 +24,11 @@ def email(request):
         if form.is_valid():
             from_email = form.cleaned_data.get("from_email")
             from_user = form.cleaned_data.get("from_user")
-            from_surname = form.cleaned_data.get("from_surname")
             phone_number = form.cleaned_data.get('phone_number')
             form.save()
 
             comment = from_email + " istifadəçisi qeydiyyatdan keçmək üçün müraciət etdi, əlaqə nömrəsi " + phone_number
-            pro_comment = from_user + " " + from_surname
+            pro_comment = from_user
             send_mail(pro_comment, comment, from_email, [settings.EMAIL_HOST_USER], fail_silently=False)
 
             return redirect('home')
@@ -50,12 +49,11 @@ def contact(request):
         if contact_form.is_valid():
             contact_form.save()
             name = contact_form.cleaned_data.get("name")
-            surname = contact_form.cleaned_data.get('surname')
             message = contact_form.cleaned_data.get("message")
             number = contact_form.cleaned_data.get("number")
             email = contact_form.cleaned_data.get("email")
             
-            topic_comment = str(name) + " " + str(surname)
+            topic_comment = str(name)
             cantact_comment = email + " - " + message + " , istifadeçinin əlaqə nömrəsi: " + number
 
             send_mail(
@@ -93,11 +91,10 @@ def career(request):
         
         if career_form.is_valid():
             teach_name = career_form.cleaned_data.get('teach_name')
-            teach_surname = career_form.cleaned_data.get("teach_surname")
             teach_message = career_form.cleaned_data.get("teach_message")
             teach_email = career_form.cleaned_data.get("teach_email")
             comment = teach_email + " - " + teach_message
-            user_comment = teach_surname + " " + teach_name
+            user_comment = teach_name
             career_form.save()
             
             

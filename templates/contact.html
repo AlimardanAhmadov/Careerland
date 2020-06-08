@@ -68,7 +68,6 @@
                         <form class="login-form" action="{% url 'contact' %}" method="POST">
                             {% csrf_token %}
                             <input type="text" name="name" placeholder="Ad" />
-                            <input type="text" name="surname" placeholder="Soyad" />
                             <input type="email" name="email" placeholder="Email" />
                             <input type="text" name="number" placeholder="Telefon">
                             <textarea name="message" placeholder=Mesaj></textarea>
