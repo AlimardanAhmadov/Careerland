@@ -28,8 +28,10 @@ def email(request):
             phone_number = form.cleaned_data.get('phone_number')
             comment = from_email + ' istifadəçisi qeydiyyatdan keçmək üçün müraciət etdi, əlaqə nömrəsi ' + phone_number
             pro_comment = from_user + " " + from_surname
-            send_mail(pro_comment, comment, from_email, [settings.EMAIL_HOST_USER])
             form.save()
+
+            send_mail(pro_comment, comment, from_email, [settings.EMAIL_HOST_USER])
+            
             return redirect('home')
     else:
         form = RegistrationForm()
